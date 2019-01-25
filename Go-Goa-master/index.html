@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="css/style.css">
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+      <meta charset="utf-8">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+          
+   </head>
+   <body>
+      <nav class="nav-extended">
+         <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Goa</a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+         </div>
+         </div> 
+         <div class="nav-content">
+
+
+      </nav>
+      <ul id="slide-out" class="sidenav">
+         <!-- ko foreach: categories -->
+            <li><a class="waves-effect btn" href="#!" data-bind="text: $data, click:$parent.showCat($data)"></a></li>
+         <!-- /ko -->
+       <li>
+           <input type="text" placeholder="search" data-bind="value: searchText, valueUpdate: 'keyup' , event : {keyup : filterFunction}"  required>
+       </li>
+        <!-- ko foreach: locationList -->
+         <li><a data-bind="text: name , click:$parent.showInfo, visible:show" >Subheader</a></li>
+         <!-- /ko -->
+     </ul>
+        
+      <div id="map"  ></div>
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>   
+      <script>
+
+        $(document).ready(function(){
+          $('.sidenav').sidenav();
+        });
+        
+      </script>
+      <script src="js/map.js"></script>
+      <script async defer
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCB7U0ZyuHZnaOT13uoiA9tKHanAzk5_SQ&callback=initMap" onerror="googleError()"></script>
+   </body>
+</html>
